@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Homework
+        </title>
+        <style>
+            body{
+                color: black;
+                background-color: rgb(236, 217, 217);
+            }
+            h1{
+                color: rgb(14, 13, 13);
+            }
+            button{
+                background-color: rgb(255, 255, 255);
+                color: rgb(15, 15, 15);
+                border: 1px solid black;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+            ul{
+                color:rgb(7, 7, 7);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>
+            Add your Shopping List here!
+        </h1>
+        <form id="myForm">
+            <input id="myInput" type="text">
+            <button>
+                Add
+            </button>
+        </form>
+        <h3>
+            Shopping List
+        </h3>
+        <ul id="myItem"></ul>
+        <script>
+            var myForm = document.getElementById("myForm");
+            var myInput = document.getElementById("myInput");
+            var myItem = document.getElementById("myItem");
+
+            myForm.addEventListener("submit" , function(event){
+                event.preventDefault();
+                createItem(myInput.value);
+            })
+            function createItem(inputItems){
+                var items =  `<li>${inputItems}
+                <button onclick="deleteElement(this)">Delete</button></li>`
+                myItem.insertAdjacentHTML("beforeend", items)
+                myInput.value = "";
+                myInput.focus();
+            }
+            function deleteElement(ElementToDelete){
+                ElementToDelete.parentElement.remove();
+            }
+        </script>
+    </body>
+</html>
