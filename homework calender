@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Homework
+        </title>
+        <style>
+            body{
+                text-align: center;
+            }
+            div{
+                border: 1px solid black;
+                border-radius: 10px;
+                width: 200px;
+                height: 120px;
+                margin: 0 auto;
+                text-align: center;
+                font-size: 40px;
+                background-color: black;
+                color:aliceblue;
+                box-shadow: 0 0 30px rgb(77, 72, 72);
+            }
+        </style>
+    </head>
+    <body onload="showDate()">
+        <h1>
+            Today's Calendar
+        </h1>
+        <div id="date" onclick="showDate()"></div>
+        <script>
+            function showDate(){
+              var date = new Date();
+              var d  = date.getDay();
+              var de = date.getDate();
+              var m  = date.getMonth() + 1;
+              var y  = date.getFullYear();
+              var dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+              if (m < 10) {
+                m = "0" + m;
+              }
+              if(de < 10) {
+                de = "0" + de;
+              }
+
+              var dates = de + "/" + m + "/" + y + "<br>" + dayNames[d];
+              document.getElementById("date").innerHTML = dates;
+            }
+        </script>
+    </body>
+</html>
