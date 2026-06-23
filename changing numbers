@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Stop Changing Numbers
+        </title>
+        <style>
+            body{
+                text-align: center;
+                background-color: bisque;
+                font-family: cursive;
+            }
+            p{
+                font-size: 90px;
+            }
+            button{
+                background-color: black;
+                color: aliceblue;
+                border: 0 solid black;
+                border-radius: 7px;
+                height: 55px;
+                width: 90px;
+                font-size: large;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>
+            Stop Changing Numbers
+        </h1>
+        <p id="numbers">
+            ?
+        </p>
+        <button onclick="start()">
+            Start
+        </button>
+        <button onclick="stops()">
+            Stop
+        </button>
+        <script>
+            let interval;
+
+            function start(){
+                interval = setInterval(() => {
+                    document.getElementById("numbers").innerText =
+                        Math.floor(Math.random() * 1000) + 1;  
+                }, 100);
+            }
+
+            function stops(){
+                clearInterval(interval);
+            }
+        </script>
+    </body>
+</html>
